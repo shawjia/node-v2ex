@@ -1,0 +1,35 @@
+{
+  "name": "V2EX",
+  "description": "V2EX Cli",
+  "version": "0.0.1",
+  "homepage": "https://github.com/shawjia/node-v2ex",
+  "author": {
+    "name": "shawjia",
+    "email": "shawjia@gmail.com",
+    "url": "http://shawjia.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shawjia/node-v2ex.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shawjia/node-v2ex/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/shawjia/node-v2ex/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/v2ex",
+  "engines": {
+    "node": ">= 0.6.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.17"
+  },
+  "keywords": []
+}
