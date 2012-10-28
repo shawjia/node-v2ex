@@ -1,4 +1,4 @@
-# v2ex
+# v2ex [![Build Status](https://secure.travis-ci.org/shawjia/node-v2ex.png)](http://travis-ci.org/shawjia/node-v2ex)
 
 v2ex SDK, v2ex Cli
 
@@ -22,7 +22,7 @@ _(Coming soon)_
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](https://github.com/gruntjs/grunt).
 
 ## Release History
-* 2012/10/23 - v0.0.1 - Initial release.
+* 2012/10/28 - v0.0.1 - Initial release.
 
 ## License
 Copyright (c) 2012 shawjia
