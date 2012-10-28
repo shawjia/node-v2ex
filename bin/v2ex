@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+
+var
+  colors = require('colors'),
+  v2ex   = require('../lib/v2ex');
+
+v2ex.home(function(err, items){
+  if (err) {
+    console.error(err);
+    return;
+  }
+
+  items.forEach(function(item){
+  console.log(
+    '%s\t%s\n\t%s %s %s',
+
+    ('#' + item.id).grey,
+    item.title.yellow,
+
+    item.author.red,
+    item.node.grey,
+    item.url
+    );
+  });
+
+});

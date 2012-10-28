@@ -1,14 +1,16 @@
-# V2EX
+# v2ex
 
-V2EX Cli
+v2ex SDK, v2ex Cli
 
 ## Getting Started
-Install the module with: `npm install V2EX`
+Install the module with: `npm install v2ex`
 
 ```javascript
-var V2EX = require('V2EX');
-V2EX.awesome(); // "awesome"
+var v2ex = require('v2ex');
+v2ex.home(function(err, items){});
 ```
+
+Type `v2ex` in your terminal to use the built-in Cli.
 
 ## Documentation
 _(Coming soon)_
@@ -20,8 +22,8 @@ _(Coming soon)_
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](https://github.com/gruntjs/grunt).
 
 ## Release History
-_(Nothing yet)_
+* 2012/10/23 - v0.0.1 - Initial release.
 
 ## License
-Copyright (c) 2012 shawjia  
+Copyright (c) 2012 shawjia
 Licensed under the MIT license.

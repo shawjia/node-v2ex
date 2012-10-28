@@ -1,6 +1,6 @@
 {
-  "name": "V2EX",
-  "description": "V2EX Cli",
+  "name": "v2ex",
+  "description": "v2ex SDK",
   "version": "0.0.1",
   "homepage": "https://github.com/shawjia/node-v2ex",
   "author": {
@@ -23,7 +23,15 @@
   ],
   "main": "lib/v2ex",
   "engines": {
-    "node": ">= 0.6.0"
+    "node": ">= 0.8.0"
+  },
+  "dependencies": {
+    "cheerio": "*",
+    "request": "*",
+    "colors": "*"
+  },
+  "bin": {
+    "v2ex": "bin/v2ex"
   },
   "scripts": {
     "test": "grunt test"
@@ -31,5 +39,9 @@
   "devDependencies": {
     "grunt": "~0.3.17"
   },
-  "keywords": []
+  "keywords": [
+    "v2ex",
+    "web",
+    "sdk"
+  ]
 }
