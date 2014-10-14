@@ -3,11 +3,7 @@
   "description": "v2ex SDK",
   "version": "0.0.1",
   "homepage": "https://github.com/shawjia/node-v2ex",
-  "author": {
-    "name": "shawjia",
-    "email": "shawjia@gmail.com",
-    "url": "http://shawjia.github.com"
-  },
+  "author": "shawjia <shawjia@gmail.com> (http://shawjia.github.com), lsong <song940@gmail.com> (https://lsong.org)",
   "repository": {
     "type": "git",
     "url": "git://github.com/shawjia/node-v2ex.git"
@@ -15,20 +11,16 @@
   "bugs": {
     "url": "https://github.com/shawjia/node-v2ex/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/shawjia/node-v2ex/blob/master/LICENSE-MIT"
-    }
-  ],
+  "licenses": "MIT",
   "main": "lib/v2ex",
   "engines": {
     "node": ">= 0.8.0"
   },
   "dependencies": {
-    "cheerio": "*",
+    "colors": "*",
+    "commander": "^2.3.0",
     "request": "*",
-    "colors": "*"
+    "underscore": "^1.7.0"
   },
   "bin": {
     "v2ex": "bin/v2ex"
@@ -43,5 +35,6 @@
     "v2ex",
     "web",
     "sdk"
-  ]
+  ],
+  "license": "MIT"
 }
