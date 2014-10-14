@@ -1,8 +1,9 @@
 ## v2ex ![npm](https://badge.fury.io/js/v2ex.png)
 
-v2ex SDK
+v2ex SDK for nodejs
 
 ### Installation
+
 ````
 $ [sudo] npm install [-g] v2ex [--save]
 ````
@@ -11,21 +12,30 @@ $ [sudo] npm install [-g] v2ex [--save]
 ### CLI Useage
 
 ````
-$ v2ex help
+➜ v2ex
+
+  Usage: v2ex [command] [options]
+
+  Options:
+
+    -h, --help            output usage information
+    -V, --version         output the version number
+    -t, --hot [id]        top 10 of topics
+    -l, --latest [id]     all topics
+    -n, --node <name>     node info
+    -u, --profile <user>  member info
 ````
 
 ### Example
+
 ````javascript
 var v2ex = require('v2ex');
 
-v2ex.list(function(){
-	
+v2ex.latest(function(err, topics){
+	console.log(topics);
 });
 
 ````
-
-### API
-check this file: `lib/v2ex`
 
 ### Contributing
 - Fork this repo
