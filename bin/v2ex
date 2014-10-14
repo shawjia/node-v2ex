@@ -1,26 +1,86 @@
 #!/usr/bin/env node
 
-var
-  colors = require('colors'),
-  v2ex   = require('../lib/v2ex');
+var _ 			= require('underscore');
+var colors	= require('colors');
+var program	= require('commander');
+var package = require('../package.json');
 
-v2ex.home(function(err, items){
-  if (err) {
-    console.error(err);
-    return;
-  }
+var v2ex = require('../');
 
-  items.forEach(function(item){
-  console.log(
-    '%s\t%s\n\t%s %s %s',
+program
+	.version(package.version)
+	.usage('[command] [options]')
+	.option('-t, --hot [id]', 'top 10 of topics')
+	.option('-l, --latest [id]', 'all topics')
+	.option('-n, --node <name>', 'node info')
+	.option('-u, --profile <user>', 'member info')
+	.parse(process.argv);
 
-    ('#' + item.id).grey,
-    item.title.yellow,
+var render = function(topics){
+	topics.forEach(function(topic){
+		console.log('%s %s', ('#' + topic.id).gray, topic.title);
+	});
+};
 
-    item.author.red,
-    item.node.grey,
-    item.url
-    );
-  });
+var renderTopic = function(topic){
+	console.log('%s %s',('#' + topic.id).gray , topic.title);
+	console.log('---');
+	console.log(topic.url);
+	console.log('---');
+	console.log((topic.content).gray);
+	v2ex.getReplies(topic.id, function(err, replies){
+		replies.forEach(function(reply){
+			console.log('---');
+			console.log('%s <%s> at %s', reply.member.username,('#' + reply.member.id).gray, new Date(reply.created * 1000));
+			console.log(reply.content.gray);
+		});
+	});
+};
 
+var showTopics = function(err, topics){
+	if(err) return console.log(err);
+	if(program.hot === true || program.latest == true){
+		render(topics);
+	}else{
+		var topic = _.find(topics, { id : parseInt(program.hot || program.latest) });
+		renderTopic(topic);
+	}
+};
+
+if(program.hot){
+	v2ex.hot(showTopics);
+}else if(program.latest){
+	v2ex.latest(showTopics);
+}
+
+if(program.node){
+	v2ex.node( program.node , function(err, info){
+		console.log('%s <%s>', info.title, ('#' + info.name).gray);
+		console.log('Topics: %s', info.topics);
+		console.log(info.url);
+		console.log(info.header);
+	});
+}
+
+if(program.profile){
+	v2ex.profile(program.profile, function(err, profile){
+		console.log('%s %s',('#' + profile.id).gray, (profile.username).green);
+		console.log('---');
+		console.log('%s', profile.url);
+		console.log('Location\t : %s', profile.location);
+		console.log('HomePage\t : %s', profile.website);
+		console.log('GitHub  \t : https://github.com/%s', profile.twitter);
+		console.log('Twitter \t : https://twitter.com/%s', profile.twitter);
+		console.log('---');
+		console.log('%s', (profile.bio));
+	});
+}
+
+var flag_count = 0;
+([ 'hot', 'node', 'latest', 'profile' ]).forEach(function(cmd){
+	if( program[ cmd ] ) flag_count++;
 });
+
+if(flag_count == 0){
+	program.help();
+}
